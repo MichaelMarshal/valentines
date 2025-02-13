@@ -107,26 +107,16 @@
             background-color: red;
             clip-path: polygon(50% 0%, 0% 35%, 50% 100%, 100% 35%);
             opacity: 0;
-            animation: flyOut 2s forwards;
-        }
-        .heart:nth-child(1) {
-            animation-delay: 0s;
-        }
-        .heart:nth-child(2) {
-            animation-delay: 0.5s;
-        }
-        .heart:nth-child(3) {
-            animation-delay: 1s;
         }
         /* Flying Heart Animation */
         @keyframes flyOut {
             0% {
-                transform: scale(1) translate(0, 0);
                 opacity: 1;
+                transform: scale(1) translate(0, 0);
             }
             100% {
-                transform: scale(1.5) translate(calc(-200px + (random()*400)), calc(-400px + (random()*400)));
                 opacity: 0;
+                transform: scale(1.5) translate(var(--x), var(--y));
             }
         }
     </style>
@@ -155,11 +145,7 @@
     <img src="./dudu.gif" class="dudu" alt="Dudu Kissing">
     
     <div class="gift-box" id="giftBox"></div>
-    <div class="hearts" id="hearts">
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-    </div>
+    <div class="hearts" id="hearts"></div>
     
     <script>
         let slides = document.querySelectorAll('.slide');
@@ -179,23 +165,25 @@
         };
 
         document.getElementById('giftBox').addEventListener('click', function() {
-            let hearts = document.getElementById('hearts');
-            hearts.style.display = 'block';
+            let heartsContainer = document.getElementById('hearts');
+            heartsContainer.style.display = 'block';
 
             // Create hearts dynamically on click
             for (let i = 0; i < 5; i++) {
                 let heart = document.createElement('div');
                 heart.classList.add('heart');
-                hearts.appendChild(heart);
-            }
+                heartsContainer.appendChild(heart);
 
-            setTimeout(() => {
-                let allHearts = document.querySelectorAll('.heart');
-                allHearts.forEach(heart => {
-                    heart.style.opacity = '1';
-                    heart.style.animation = 'flyOut 2s forwards';
-                });
-            }, 100); // Delay the animation to let the hearts be added first
+                // Randomize heart positions
+                let randomX = Math.floor(Math.random() * 400) - 200; // Random X between -200px and 200px
+                let randomY = Math.floor(Math.random() * -400) - 100; // Random Y between -100px and -400px
+
+                heart.style.setProperty('--x', `${randomX}px`);
+                heart.style.setProperty('--y', `${randomY}px`);
+
+                // Start animation
+                heart.style.animation = 'flyOut 2s forwards';
+            }
         });
     </script>
 </body>
