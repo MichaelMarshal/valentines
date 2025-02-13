@@ -102,11 +102,9 @@
         }
         .heart {
             position: absolute;
-            width: 30px;
-            height: 30px;
-            background-color: red;
-            clip-path: polygon(50% 0%, 0% 35%, 50% 100%, 100% 35%);
+            font-size: 30px; /* Size of the heart emoji */
             opacity: 0;
+            animation: flyOut 2s forwards;
         }
         /* Flying Heart Animation */
         @keyframes flyOut {
@@ -168,10 +166,11 @@
             let heartsContainer = document.getElementById('hearts');
             heartsContainer.style.display = 'block';
 
-            // Create hearts dynamically on click
-            for (let i = 0; i < 5; i++) {
+            // Create multiple hearts dynamically on click
+            for (let i = 0; i < 20; i++) {  // Create 20 hearts for example
                 let heart = document.createElement('div');
                 heart.classList.add('heart');
+                heart.innerText = '❤️';  // Heart emoji
                 heartsContainer.appendChild(heart);
 
                 // Randomize heart positions
