@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+        }
+        h1 {
+            color: #ff4d4d;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px;
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .poem {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+            cursor: pointer;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Valentine's Day ❤️</h1>
+    
+    <div class="poem">
+        <h2>My Love for You</h2>
+        <p>Roses are red, violets are blue,<br>
+        My heart is full, all because of you.<br>
+        Every moment, every day,<br>
+        You make my worries fade away.<br>
+        Like the stars that shine so bright,<br>
+        You fill my heart with endless light.<br>
+        Forever and always, my love stays true,<br>
+        Because every heartbeat whispers you.</p>
+    </div>
+    
+    <h2>Gallery of Memories</h2>
+    <div class="gallery" id="gallery">
+        <!-- Images will be added dynamically -->
+    </div>
+    
+    <h2>Click the Heart for a Surprise! ❤️</h2>
+    <div class="heart" onclick="showMessage()">❤️</div>
+    
+    <script>
+        // Add real images from reliable sources
+        const images = [
+            'https://source.unsplash.com/400x400/?valentine',
+            'https://source.unsplash.com/400x400/?love',
+            'https://source.unsplash.com/400x400/?romantic',
+            'https://source.unsplash.com/400x400/?couple',
+            'https://source.unsplash.com/400x400/?heart',
+            'https://source.unsplash.com/400x400/?red-roses',
+            'https://source.unsplash.com/400x400/?chocolates',
+            'https://source.unsplash.com/400x400/?valentine-cards',
+            'https://source.unsplash.com/400x400/?gift',
+            'https://source.unsplash.com/400x400/?romance'
+        ];
+        
+        const gallery = document.getElementById("gallery");
+        images.forEach(img => {
+            let imageElement = document.createElement("img");
+            imageElement.src = img;
+            gallery.appendChild(imageElement);
+        });
+        
+        // Heart click surprise message
+        function showMessage() {
+            alert("You are loved more than words can say! 💖");
+        }
+    </script>
+</body>
+</html>
