@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Day</title>
     <style>
         body {
@@ -13,9 +13,6 @@
             overflow: hidden;
             color: white;
             display: none;
-            background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
         }
         .quote {
             position: relative;
@@ -120,17 +117,21 @@
             }
             .slideshow-container {
                 width: 90%;
+                height: 100vw;
                 height: 80vw;
                 max-height: 300px;
+                margin-top: 10vw;
                 margin-top: 40vw;
             }
             .dudu {
+                bottom: -80px;
                 bottom: -100px;
                 right: 10px;
                 width: 25vw;
                 max-width: 150px;
             }
             .gift-box {
+                bottom: -80px;
                 bottom: -100px;
                 width: 20vw;
                 max-width: 120px;
@@ -138,174 +139,6 @@
                 max-height: 120px;
             }
         }
-        /* Add these media queries to your existing styles.css file */
-
-@media screen and (max-width: 768px) {
-  body {
-    background-size: 200% auto;
-  }
-
-  .container {
-    width: 90%;
-    max-width: 500px;
-    padding: 20px;
-    margin-top: 1rem;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  .btn-group {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btn-group button {
-    width: 100%;
-    margin: 5px 0;
-  }
-
-  .moon {
-    width: 80px;
-    height: 80px;
-    top: 10%;
-    right: 5%;
-  }
-
-  .house {
-    width: 100px;
-    height: 100px;
-    bottom: 5%;
-    left: 3%;
-  }
-
-  /* Adjust cat position */
-  .cat {
-    width: 80px;
-    height: 80px;
-    bottom: 15%;
-    right: 5%;
-  }
-
-  /* Adjust envelope size and position */
-  .envelope {
-    width: 90%;
-    max-width: 350px;
-    height: auto;
-    margin-top: 20px;
-  }
-
-  .heart {
-    width: 50px;
-    height: 50px;
-  }
-
-  /* Adapt celebration animation for smaller screens */
-  .confetti {
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Adjust the form elements */
-  #valentine-form input, 
-  #valentine-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-  }
-
-  /* Adjust image sizes in the gallery */
-  .gallery img {
-    width: 100%;
-    max-width: 300px;
-    margin: 5px auto;
-  }
-}
-
-/* Extra small devices */
-@media screen and (max-width: 480px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-  }
-
-  .container {
-    padding: 15px;
-  }
-
-  .moon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .house {
-    width: 80px;
-    height: 80px;
-  }
-
-  .envelope {
-    max-width: 280px;
-  }
-
-  /* Ensure buttons are easy to tap on mobile */
-  .btn-group button {
-    padding: 12px;
-    font-size: 0.9rem;
-  }
-
-  /* Make sure form elements are easily tappable */
-  #valentine-form input,
-  #valentine-form textarea,
-  #valentine-form button {
-    font-size: 16px;  /* Prevents zoom on input focus on iOS */
-  }
-}
-        @media screen and (max-width: 768px) {
-  body {
-    /* This ensures the background covers the entire viewport */
-    background-size: cover;
-    
-    /* Center the most important part of the sky */
-    background-position: center center;
-    
-    /* Ensures full height coverage */
-    min-height: 100vh;
-    
-    /* If you want to zoom slightly to show more stars */
-    background-size: 120% auto;
-    
-    /* Slight adjustment to position to show more sky */
-    background-position: 50% 20%;
-  }
-}
-
-/* Smallest devices might need extra adjustments */
-@media screen and (max-width: 480px) {
-  body {
-    /* More zoomed in to ensure visible stars */
-    background-size: 140% auto;
-    
-    /* Higher position to show more of the night sky */
-    background-position: 50% 15%;
-  }
-}
-        @media screen and (max-width: 768px) {
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 100%);
-    z-index: -1;
-    pointer-events: none;
-  }
-}
     </style>
 </head>
 <body>
@@ -317,14 +150,6 @@
         <img src="./image-1.jpg" class="slide active">
         <img src="./image-2.jpg" class="slide">
         <img src="./image-3.jpg" class="slide">
-        <img src="./image-4.jpg" class="slide">
-        <img src="./image-5.jpg" class="slide">
-        <img src="./image-6.jpg" class="slide">
-        <img src="./image-7.jpg" class="slide">
-        <img src="./image-8.jpg" class="slide">
-        <img src="./image-9.jpg" class="slide">
-        <img src="./image-10.jpg" class="slide">
-        <img src="./image-11.jpg" class="slide">
     </div>
     <img src="./dudu.gif" class="dudu" alt="Dudu Kissing">
     <div class="gift-box" id="giftBox"></div>
