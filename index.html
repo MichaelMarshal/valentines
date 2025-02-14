@@ -17,23 +17,23 @@
         .quote {
             position: relative;
             margin-top: 15%;
-            left: 5%;
-            transform: translateY(-50%);
-            font-size: 28px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5vw;
             font-weight: bold;
-            width: 30%;
+            width: 80%;
             background: rgba(0, 0, 0, 0.6);
-            padding: 20px;
+            padding: 5vw;
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
         .slideshow-container {
             position: relative;
-            bottom: 10px;
-            left: 5%;
-            width: 20%;
-            height: 500px;
+            margin: 5vw auto;
+            width: 80%;
+            height: 50vw;
+            max-height: 500px;
             overflow: hidden;
             border-radius: 15px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -57,7 +57,8 @@
             position: absolute;
             bottom: 10px;
             right: 10px;
-            width: 200px;
+            width: 25vw;
+            max-width: 200px;
             height: auto;
         }
         .preloader {
@@ -77,8 +78,10 @@
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 150px;
-            height: 150px;
+            width: 20vw;
+            max-width: 150px;
+            height: 20vw;
+            max-height: 150px;
             background: red;
             border-radius: 10px;
             display: flex;
@@ -89,9 +92,9 @@
         }
         .gift-box::before {
             content: '\1F381'; /* 🎁 */
-            font-size: 50px;
+            font-size: 10vw;
+            max-font-size: 50px;
         }
-        /* Heart Styles */
         .hearts {
             position: absolute;
             bottom: 10px;
@@ -102,11 +105,11 @@
         }
         .heart {
             position: absolute;
-            font-size: 30px; /* Size of the heart emoji */
+            font-size: 8vw;
+            max-font-size: 30px;
             opacity: 0;
             animation: flyOut 2s forwards;
         }
-        /* Flying Heart Animation */
         @keyframes flyOut {
             0% {
                 opacity: 1;
@@ -166,21 +169,17 @@
             let heartsContainer = document.getElementById('hearts');
             heartsContainer.style.display = 'block';
 
-            // Create multiple hearts dynamically on click
-            for (let i = 0; i < 20; i++) {  // Create 20 hearts for example
+            for (let i = 0; i < 20; i++) {
                 let heart = document.createElement('div');
                 heart.classList.add('heart');
-                heart.innerText = '❤️';  // Heart emoji
+                heart.innerText = '❤️';
                 heartsContainer.appendChild(heart);
 
-                // Randomize heart positions
-                let randomX = Math.floor(Math.random() * 400) - 200; // Random X between -200px and 200px
-                let randomY = Math.floor(Math.random() * -400) - 100; // Random Y between -100px and -400px
+                let randomX = Math.floor(Math.random() * 400) - 200;
+                let randomY = Math.floor(Math.random() * -400) - 100;
 
                 heart.style.setProperty('--x', `${randomX}px`);
                 heart.style.setProperty('--y', `${randomY}px`);
-
-                // Start animation
                 heart.style.animation = 'flyOut 2s forwards';
             }
         });
