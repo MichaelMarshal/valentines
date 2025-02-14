@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('./background-image.png') no-repeat center center fixed;
+            background: url('./background-image.png') no-repeat right center fixed;
             background-size: cover;
             position: relative;
             overflow: hidden;
@@ -17,23 +17,23 @@
         .quote {
             position: relative;
             margin-top: 15%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 5vw;
+            left: 5%;
+            transform: translateY(-50%);
+            font-size: 28px;
             font-weight: bold;
-            width: 80%;
+            width: 30%;
             background: rgba(0, 0, 0, 0.6);
-            padding: 5vw;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
         .slideshow-container {
             position: relative;
-            margin: 5vw auto;
-            width: 80%;
-            height: 50vw;
-            max-height: 500px;
+            bottom: 10px;
+            left: 5%;
+            width: 20%;
+            height: 500px;
             overflow: hidden;
             border-radius: 15px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -57,31 +57,16 @@
             position: absolute;
             bottom: 10px;
             right: 10px;
-            width: 25vw;
-            max-width: 200px;
+            width: 200px;
             height: auto;
-        }
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
         }
         .gift-box {
             position: absolute;
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 20vw;
-            max-width: 150px;
-            height: 20vw;
-            max-height: 150px;
+            width: 150px;
+            height: 150px;
             background: red;
             border-radius: 10px;
             display: flex;
@@ -92,8 +77,7 @@
         }
         .gift-box::before {
             content: '\1F381'; /* 🎁 */
-            font-size: 10vw;
-            max-font-size: 50px;
+            font-size: 50px;
         }
         .hearts {
             position: absolute;
@@ -105,8 +89,7 @@
         }
         .heart {
             position: absolute;
-            font-size: 8vw;
-            max-font-size: 30px;
+            font-size: 30px;
             opacity: 0;
             animation: flyOut 2s forwards;
         }
@@ -120,34 +103,51 @@
                 transform: scale(1.5) translate(var(--x), var(--y));
             }
         }
+        @media screen and (max-width: 768px) {
+            body {
+                background-position: right center;
+            }
+            .quote {
+                width: 80%;
+                font-size: 5vw;
+                padding: 5vw;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .slideshow-container {
+                width: 90%;
+                height: 50vw;
+                max-height: 300px;
+            }
+            .dudu {
+                bottom: -20px;
+                right: 10px;
+                width: 25vw;
+                max-width: 150px;
+            }
+            .gift-box {
+                bottom: -20px;
+                width: 20vw;
+                max-width: 120px;
+                height: 20vw;
+                max-height: 120px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="preloader">
         <img src="./loading-gift.gif" alt="Loading...">
     </div>
-    
     <div class="quote">"To my beautiful wife, my heart beats only for you, today and forever. Happy Valentine's Day!" ❤️</div>
-    
     <div class="slideshow-container">
         <img src="./image-1.jpg" class="slide active">
         <img src="./image-2.jpg" class="slide">
         <img src="./image-3.jpg" class="slide">
-        <img src="./image-4.jpg" class="slide">
-        <img src="./image-5.jpg" class="slide">
-        <img src="./image-6.jpg" class="slide">
-        <img src="./image-7.jpg" class="slide">
-        <img src="./image-8.jpg" class="slide">
-        <img src="./image-9.jpg" class="slide">
-        <img src="./image-10.jpg" class="slide">
-        <img src="./image-11.jpg" class="slide">
     </div>
-    
     <img src="./dudu.gif" class="dudu" alt="Dudu Kissing">
-    
     <div class="gift-box" id="giftBox"></div>
     <div class="hearts" id="hearts"></div>
-    
     <script>
         let slides = document.querySelectorAll('.slide');
         let currentIndex = 0;
@@ -159,7 +159,7 @@
             currentIndex = (currentIndex + 1) % slides.length;
         }
         setInterval(showSlides, 3000);
-        
+
         window.onload = function() {
             document.querySelector('.preloader').style.display = 'none';
             document.body.style.display = 'block';
@@ -168,16 +168,13 @@
         document.getElementById('giftBox').addEventListener('click', function() {
             let heartsContainer = document.getElementById('hearts');
             heartsContainer.style.display = 'block';
-
             for (let i = 0; i < 20; i++) {
                 let heart = document.createElement('div');
                 heart.classList.add('heart');
                 heart.innerText = '❤️';
                 heartsContainer.appendChild(heart);
-
                 let randomX = Math.floor(Math.random() * 400) - 200;
                 let randomY = Math.floor(Math.random() * -400) - 100;
-
                 heart.style.setProperty('--x', `${randomX}px`);
                 heart.style.setProperty('--y', `${randomY}px`);
                 heart.style.animation = 'flyOut 2s forwards';
